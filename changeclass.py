@@ -49,4 +49,5 @@ for f1 in files:
 
         with open(f1, "w") as outfile:          #Open file to write
             for line in res:
+                print(f1)
                 outfile.write(str(line[0])+" "+str(line[1])+" " +str(line[2])+" " +str(line[3])+" " +str(line[4])+"\n")              #Write Data
