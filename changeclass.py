@@ -23,12 +23,22 @@ for f1 in files:
     if args["delete"]:
         with open(f1, "r") as readfile:
             lines = readfile.readlines()
-        with open(f1, "w") as readfile:
-            print(f1)
             for line in lines:
                 val = line.split()
-                if val[0] != args["del_class"]:
-                    readfile.write(line)
+                if val[0] == str(args["del_class"]):
+                    val[0] = str(404)
+                    print(val[0])
+                elif val[0] > args["del_class"]:
+                    val[0] = str(int(val[0])-1)
+                    print(val[0])
+                res.append(val)
+
+        with open(f1, "w") as readfile:
+            print(f1)
+            for line in res:
+                if line[0] != str(404):
+                    readfile.write(str(line[0])+ " "+str(line[1])+" " +str(line[2])+" " +str(line[3])+" " +str(line[4])+"\n")
+        
     else:
         with open(f1, "r") as infile:
             for line in infile:                        # Iterate each line 
