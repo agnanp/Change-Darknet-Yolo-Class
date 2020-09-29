@@ -28,7 +28,7 @@ for f1 in files:
                 if val[0] == str(args["del_class"]):
                     val[0] = str(404)
                     print(val[0])
-                elif val[0] > args["del_class"]:
+                elif int(val[0]) > int(args["del_class"]):
                     val[0] = str(int(val[0])-1)
                     print(val[0])
                 res.append(val)
